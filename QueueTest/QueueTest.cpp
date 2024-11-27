@@ -4,9 +4,27 @@
 #include <iostream>
 #include <list>
 #include <queue>
+#include <deque>
 
 using namespace std;
 
+int main()
+{
+	deque<int> d { 10, 20, 30, 40, 50 };
+
+	d.push_front(60);
+	d.push_back(70);
+
+	for (auto e : d)
+	{
+		cout << e << ", ";
+	}
+	cout << endl;
+
+}
+
+
+/*
 //배열로 환형 큐 구현
 template <typename T>
 class CircularQueue
@@ -119,7 +137,7 @@ int main()
 	cout << endl;
 
 }
-
+*/
 
 /*
 template <typename T>
