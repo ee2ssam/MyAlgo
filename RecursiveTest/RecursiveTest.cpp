@@ -126,8 +126,11 @@ void permutation(vector<int>& vec, int k)
 
 int main()
 {
-	vector<int> vec{ 1, 2, 3, 4 };
-	permutation(vec, 0);
+	cout << std::gcd(24, 18) << endl;
+	cout << std::lcm(3, 4) << endl;
+
+	//vector<int> vec{ 1, 2, 3, 4 };
+	//permutation(vec, 0);
 
 	//cout << gcd(24, 18) << endl;
 	//cout << lcm(3, 4) << endl;
