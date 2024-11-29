@@ -3,9 +3,167 @@
 
 #include <iostream>
 #include <algorithm>
+#include <vector>
+#include <string>
 
 using namespace std;
 
+//탐색: 선형, 이진
+//target을 찾으면 true, 못찾으면(데이터에 없다) false
+bool linear_search(int data[], int n, int target)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (data[i] == target)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+//이진탐색
+bool binary_search(int data[], int n, int target)
+{
+    int lower = 0;
+    int upper = n - 1;
+
+    while (lower <= upper)
+    {
+        int middle = (lower + upper) / 2;
+
+        if (data[middle] == target)
+        {
+            return true;
+        }
+        else if (data[middle] < target)
+        {
+            lower = middle + 1;
+        }
+        else
+        {
+            upper = middle - 1;
+        }
+    }
+
+    return false;
+}
+
+
+int main()
+{
+    int data[] = {1, 2, 3, 5, 7, 10, 13, 15, 19, 23, 25, 27, 28, 30, 32, 33};
+    //30찾기
+    int target = 30;
+
+    bool result1 = linear_search(data, size(data), target);
+    bool result2 = binary_search(data, size(data), target);
+    bool result3 = std::binary_search(begin(data), end(data), target);
+
+    cout << result1 << endl;
+    cout << result2 << endl;
+    cout << result3 << endl;
+
+}
+
+
+/*
+//std::sort 예제
+
+//절대값 오름차순
+bool abs_com(const int a, const int b)
+{
+    return std::abs(a) < std::abs(b);
+}
+
+struct AbsCmp {
+    bool operator()(int a, int b)
+    {
+        return std::abs(a) < std::abs(b);
+    }
+};
+
+class Person
+{
+public:
+    string name;
+    int age;
+
+    bool operator<(const Person& a) const
+    {
+        return this->age < a.age;
+    }
+
+    void print() const
+    {
+        std::cout << name << ", " << age << endl;
+    }
+};
+
+
+int main()
+{
+    vector<Person> v;
+    v.push_back({"Amelia", 29});
+    v.push_back({"Noah", 25 });
+    v.push_back({"Olivia", 31 });
+    v.push_back({"Shopi", 40 });
+    v.push_back({"George", 35 });
+
+    std::sort(v.begin(), v.end());
+
+    for (const auto& p : v)
+    {
+        p.print();
+    }
+
+
+    //배열
+    //int arr[5] = { 4, 2, 3, 5, 1 };
+    //sort(arr, arr + 5);
+    //sort(std::begin(arr), std::end(arr));
+    //sort(begin(arr), end(arr), greater<>()); //내림차순
+    //sort(std::begin(arr), std::end(arr), less<>()); //오름차순
+
+    //for (const auto& n : arr)
+    //{
+    //    cout << n << ", ";
+    //}
+    //cout << endl;
+
+
+    //vector
+    //vector<string> vec = { "orange", "banana", "apple", "lemon" };
+    //sort(vec.begin(), vec.end());
+    //sort(vec.begin(), vec.end(), greater<>()); //내림차순
+
+    //for (const auto& a : vec)
+    //{
+    //    cout << a << ", ";
+    //}
+    //cout << endl;
+
+    //비교방법 정의하고 지정하기 : 절대값 오름차순
+    //                           2, -3, 5, 7, 10
+    //vector<int> nums = { 10, 2, -3, 5, 7 };
+    //sort(nums.begin(), nums.end(), abs_com);
+    //sort(nums.begin(), nums.end(), AbsCmp());
+    //sort(nums.begin(), nums.end(), [](int a, int b) {
+    //    return std::abs(a) < std::abs(b);
+    //    });
+
+    //for (const auto& a : nums)
+    //{
+    //    cout << a << ", ";
+    //}
+    //cout << endl;
+
+}
+*/
+
+
+/*
 //버블 정렬
 void bubble_sort(int data[], int n)
 {
@@ -161,19 +319,19 @@ int main()
 
     for (auto n : data)
     {
-        cout << n << ", ";
+        std::cout << n << ", ";
     }
-    cout << endl;
+    std::cout << endl;
 
 
-    /*int data[] = {2, 6, 7, 4, 1, 8, 5, 3 };
-    merge_sort(data, 0, 7);
+    //int data[] = {2, 6, 7, 4, 1, 8, 5, 3 };
+    //merge_sort(data, 0, 7);
 
-    for (auto n : data)
-    {
-        cout << n << ", ";
-    }
-    cout << endl;*/
+    //for (auto n : data)
+    //{
+    //    cout << n << ", ";
+    //}
+    //cout << endl;
 
     //int data[] = { 4, 2, 3, 5, 1 };
     ////bubble_sort(data, 5);
@@ -187,3 +345,4 @@ int main()
     //cout << endl;
 
 }
+*/
